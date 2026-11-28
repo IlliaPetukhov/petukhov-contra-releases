@@ -1,0 +1,117 @@
+/* «Матове залізо» (docs/design/STYLE_BRIEF.md): ті самі спрайти 9-slice, шрифти й токени, що й у грі.
+   Кольори лише з tokens.css, який збирається з tokens.json. */
+@font-face { font-family: "Heading"; src: url("heading.ttf"); font-display: swap; }
+@font-face { font-family: "Body"; src: url("body.ttf"); font-display: swap; }
+@font-face { font-family: "Body"; src: url("body-bold.ttf"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Numbers"; src: url("numbers.ttf"); font-display: swap; }
+
+/* Зерно сталі ледь помітне (8–12 %, STYLE_BRIEF §4): плитка під напівпрозорим шаром основного кольору. */
+:root { --grain: linear-gradient(color-mix(in srgb, var(--steel-900) 90%, transparent), color-mix(in srgb, var(--steel-900) 90%, transparent)), url("steel-tile.png"); }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  overflow-x: clip; margin: 0; color: var(--text-primary); background: var(--grain) var(--steel-900);
+  font: 18px/1.5 "Body", "Arial Narrow", sans-serif;
+}
+main { max-width: 1000px; margin: 0 auto; padding: 0 16px 48px; }
+h1, h2, h3, .cta, .tabs button, .tape, .badge { font-family: "Heading", "Arial Black", sans-serif; font-weight: 400; letter-spacing: .03em; }
+h1, h2, h3, .cta, .tabs button { text-transform: uppercase; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { text-wrap: balance; }
+h2 { font-size: 24px; text-align: center; margin: 64px 0 16px; }
+h3 { font-size: 18px; }
+a { color: var(--text-primary); }
+a:hover { color: var(--accent-orange); }
+:focus-visible { outline: 2px solid var(--accent-orange); outline-offset: 2px; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; position: relative; z-index: 1;
+  padding: 8px max(16px, calc((100% - 968px) / 2));
+  background: var(--grain) var(--steel-900); border-bottom: var(--border-frame) solid var(--steel-700);
+}
+.topbar img { width: 208px; height: auto; }
+.languages { display: flex; gap: 4px; }
+.languages a { font: 14px/20px "Heading", sans-serif; text-decoration: none; padding: 0 4px; color: var(--text-muted); border: 8px solid transparent; border-image: url("tab.png") 16 fill / 8px stretch; }
+.languages a:hover { color: var(--text-primary); }
+.languages a[aria-current] { color: var(--steel-900); border-image-source: url("tab-active.png"); }
+
+/* Сцена: ангар зі штабу, плити стоять на «підлозі». */
+.hero { text-align: center; padding-top: 56px; position: relative; isolation: isolate; }
+.hero::before {
+  content: ""; position: absolute; z-index: -1; top: 0; bottom: -40px; left: 50%; width: 100vw; transform: translateX(-50%);
+  background: linear-gradient(transparent 65%, var(--steel-900)) no-repeat, var(--background-image) center 30% / cover no-repeat;
+}
+.hero h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.15; color: var(--accent-orange); text-shadow: 0 3px 0 var(--steel-900), 2px 0 0 var(--steel-900), -2px 0 0 var(--steel-900), 0 -2px 0 var(--steel-900); }
+.tagline { font-size: 20px; margin: 12px auto 0; max-width: 34em; text-shadow: 0 2px 0 var(--steel-900); }
+.mobile-note { display: none; color: var(--accent-orange); margin-top: 12px; text-shadow: 0 2px 0 var(--steel-900); }
+:root[data-system="mobile"] .mobile-note { display: block; }
+.downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 72px; }
+
+/* Панелі: спрайт 64px, фаска зі slice 28 у половинному масштабі, як у steel.uss. */
+.steel-panel { border: 14px solid transparent; border-image: url("panel.png") 28 fill / 14px stretch; filter: drop-shadow(0 6px 0 color-mix(in srgb, var(--steel-900) 70%, transparent)); }
+.platform { display: flex; flex-direction: column; }
+.title-bar { display: flex; align-items: center; gap: 12px; margin: -14px -14px 16px; padding: 0 4px; border: 14px solid transparent; border-image: url("title-bar.png") 28 fill / 14px stretch; }
+.title-bar h3 { margin-right: auto; }
+.badge, .tape { font-size: 12px; padding: 2px 8px; }
+.badge { background: var(--danger-red); clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px); }
+.tape { display: none; color: var(--steel-900); background: var(--accent-orange); transform: rotate(-2deg); }
+
+/* Головна кнопка гри: беж-металева плита з помаранчевими шевронами для своєї системи. */
+.cta-row { display: flex; align-items: center; gap: 8px; }
+.cta-row::before, .cta-row::after { content: ""; flex: none; width: 22px; height: 28px; background: url("chevron.png") center / contain no-repeat; visibility: hidden; }
+.cta-row::after { transform: scaleX(-1); }
+.cta {
+  flex: 1; min-width: 0; min-height: 80px; display: flex; align-items: center; justify-content: center; text-decoration: none;
+  font-size: 20px; line-height: 1.25; color: var(--steel-900);
+  border: 18px solid transparent; border-image: url("cta.png") 36 fill / 18px stretch;
+}
+.cta span { margin: -10px -6px; }
+.cta:hover { color: var(--steel-900); border-image-source: url("cta-hover.png"); }
+.cta:active { border-image-source: url("cta-pressed.png"); translate: 0 1px; }
+.cta[aria-disabled] { cursor: not-allowed; color: var(--text-muted); border-image: url("button-disabled.png") 16 fill / 8px stretch; }
+
+.status { font: 14px/1.5 "Numbers", monospace; margin-top: 12px; min-height: 1.5em; }
+.system { color: var(--text-muted); font-size: 16px; }
+
+:root[data-system="windows"] .platform[data-platform="windows"] .tape,
+:root[data-system="mac"] .platform[data-platform="mac"] .tape { display: inline-block; }
+:root[data-system="windows"] .platform[data-platform="windows"][data-state="ready"] .cta-row::before,
+:root[data-system="windows"] .platform[data-platform="windows"][data-state="ready"] .cta-row::after,
+:root[data-system="mac"] .platform[data-platform="mac"][data-state="ready"] .cta-row::before,
+:root[data-system="mac"] .platform[data-platform="mac"][data-state="ready"] .cta-row::after { visibility: visible; }
+
+/* Вкладки як у штабі: активна помаранчева з темним текстом. */
+.tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 16px; }
+.tabs button { min-width: 160px; font-size: 16px; line-height: 24px; padding: 0 12px; color: var(--text-muted); background: none; cursor: pointer; border: 8px solid transparent; border-image: url("tab.png") 16 fill / 8px stretch; }
+.tabs button:hover { color: var(--text-primary); }
+.tabs button[aria-pressed="true"] { color: var(--steel-900); border-image-source: url("tab-active.png"); }
+
+.guides { padding: 10px; }
+.guide h3 { color: var(--accent-orange); margin-bottom: 16px; }
+.tabs:not([hidden]) ~ .guides h3 { display: none; }
+.guide + .guide:not([hidden]) { margin-top: 24px; }
+.guide ol { list-style: none; counter-reset: step; margin: 0; padding: 0; display: grid; gap: 12px; }
+/* Номер кроку в слоті, як номери слотів зброї. */
+.guide li { counter-increment: step; display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: center; padding-bottom: 12px; border-bottom: var(--border-hairline) solid var(--steel-700); }
+.guide li:last-child { border-bottom: 0; padding-bottom: 0; }
+.guide li::before {
+  content: counter(step); height: 48px; display: grid; place-items: center; align-self: start; font: 20px "Numbers", monospace; color: var(--accent-orange);
+  border: 8px solid transparent; border-image: url("slot.png") 16 fill / 8px stretch;
+}
+.note { color: var(--text-muted); margin-top: 16px; }
+.center { text-align: center; }
+
+@media (max-width: 720px) {
+  .topbar img { width: 136px; }
+  .hero { padding-top: 32px; }
+  .tagline { font-size: 18px; }
+  .downloads { grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+  :root[data-system="mac"] .platform[data-platform="mac"] { order: -1; }
+  .cta { font-size: 18px; }
+  .cta-row::before, .cta-row::after { width: 14px; }
+  .tabs button { min-width: 0; flex: 1; }
+  .guides { padding: 2px; }
+  .guide li { grid-template-columns: 40px 1fr; gap: 12px; }
+  .guide li::before { height: 40px; font-size: 16px; }
+}

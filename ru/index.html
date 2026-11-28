@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контра Петухов — скачать игру</title>
+<meta name="description" content="Скачайте игру «Контра Петухов» для Windows и Mac.">
+<meta property="og:title" content="Контра Петухов — скачать игру">
+<meta property="og:description" content="Скачайте игру «Контра Петухов» для Windows и Mac.">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<div class="topbar"><img src="../wordmark.png" alt="Контра Петухов" width="630" height="170"><nav class="languages" aria-label="Язык страницы"><a href="../" lang="uk" hreflang="uk">УКР</a><a href="../en/" lang="en" hreflang="en">ENG</a><a href="../ru/" lang="ru" hreflang="ru" aria-current="page">РУС</a></nav></div>
+<main>
+  <header class="hero">
+    <h1>Собирай друзей и в бой!</h1>
+    <p class="tagline">Сетевой шутер для компьютера. Скачайте, распакуйте и вступайте в бой.</p>
+    <p class="mobile-note">Это игра для компьютера. Откройте эту страницу на Windows или Mac.</p>
+    <div class="downloads">
+      <article class="platform steel-panel" data-platform="windows">
+        <header class="title-bar"><h3>Windows</h3><span class="badge">Тестовая версия</span><span class="tape">Ваша система</span></header>
+        <div class="cta-row"><a class="cta" href="https://github.com/IlliaPetukhov/petukhov-contra-releases/releases/latest"><span>Скачать для Windows</span></a></div>
+        <p class="status" aria-live="polite"></p>
+        <p class="system">Windows 64-bit</p>
+      </article>
+      <article class="platform steel-panel" data-platform="mac">
+        <header class="title-bar"><h3>Mac</h3><span class="tape">Ваша система</span></header>
+        <div class="cta-row"><a class="cta" href="https://github.com/IlliaPetukhov/petukhov-contra-releases/releases/latest"><span>Скачать для Mac</span></a></div>
+        <p class="status" aria-live="polite"></p>
+        <p class="system">macOS 12 или новее · Apple Silicon и Intel</p>
+      </article>
+    </div>
+  </header>
+  <section aria-labelledby="howto">
+    <h2 id="howto">Как запустить</h2>
+    <div class="tabs" role="group" aria-label="Выбор системы" hidden>
+      <button type="button" data-platform="windows" aria-controls="guide-windows">Windows</button>
+      <button type="button" data-platform="mac" aria-controls="guide-mac">Mac</button>
+    </div>
+    <div class="guides steel-panel">
+      <div class="guide" id="guide-windows" data-platform="windows">
+        <h3>Windows</h3>
+        <ol><li>Нажмите на скачанный архив правой кнопкой мыши → «Извлечь все». Не запускайте игру прямо из архива.</li><li>Распакуйте, например, в папку C:\Games. Не выбирайте Program Files: там игра не сможет обновляться.</li><li>Откройте папку «Contra Petukhov» и запустите Contra Petukhov.exe.</li><li>Если появится «Система Windows защитила ваш компьютер»: «Подробнее» → «Выполнить в любом случае».</li></ol>
+        <p class="note">Версия для Windows тестовая: если что-то не работает, напишите тому, кто дал вам ссылку.</p>
+      </div>
+      <div class="guide" id="guide-mac" data-platform="mac">
+        <h3>Mac</h3>
+        <ol><li>Откройте скачанный образ (двойной щелчок): появится окно со стрелкой.</li><li>Перетащите Contra Petukhov на ярлык «Программы», иначе игра не будет обновляться. Затем извлеките образ (Finder → Извлечь) и откройте игру из «Программ».</li><li>macOS предупредит, что не может проверить разработчика. Закройте это окно кнопкой «Готово».</li><li>Откройте «Системные настройки» → «Конфиденциальность и безопасность», внизу нажмите «Всё равно открыть» и подтвердите. На macOS 14 и старее достаточно нажать на игру правой кнопкой → «Открыть».</li></ol>
+      </div>
+    </div>
+    <p class="note center">Следующие обновления игра скачивает сама при входе.</p>
+  </section>
+</main>
+<script type="application/json" id="config">{"apiUrl": "https://api.github.com/repos/IlliaPetukhov/petukhov-contra-releases/releases/latest", "releasePageUrl": "https://github.com/IlliaPetukhov/petukhov-contra-releases/releases/latest", "fetchTimeoutMs": 8000, "prefixes": ["ContraPetukhov", "ContraCity"], "extensions": {"windows": ["zip"], "mac": ["dmg", "zip"]}, "strings": {"lang": "ru", "langName": "РУС", "languageSwitch": "Язык страницы", "pageTitle": "Контра Петухов — скачать игру", "description": "Скачайте игру «Контра Петухов» для Windows и Mac.", "gameName": "Контра Петухов", "headline": "Собирай друзей и в бой!", "tagline": "Сетевой шутер для компьютера. Скачайте, распакуйте и вступайте в бой.", "buttonWindows": "Скачать для Windows", "buttonMac": "Скачать для Mac", "systemWindows": "Windows 64-bit", "systemMac": "macOS 12 или новее · Apple Silicon и Intel", "yourSystem": "Ваша система", "windowsBadge": "Тестовая версия", "loading": "Ищем свежую версию…", "fileInfo": "Версия {version} · {size}", "unavailable": "Архива для этой системы пока нет", "offline": "Не удалось проверить версию: кнопка откроет страницу релиза", "sizeUnit": "МБ", "mobileNote": "Это игра для компьютера. Откройте эту страницу на Windows или Mac.", "howTo": "Как запустить", "howToTabs": "Выбор системы", "windowsTitle": "Windows", "windowsStep1": "Нажмите на скачанный архив правой кнопкой мыши → «Извлечь все». Не запускайте игру прямо из архива.", "windowsStep2": "Распакуйте, например, в папку C:\\Games. Не выбирайте Program Files: там игра не сможет обновляться.", "windowsStep3": "Откройте папку «Contra Petukhov» и запустите Contra Petukhov.exe.", "windowsStep4": "Если появится «Система Windows защитила ваш компьютер»: «Подробнее» → «Выполнить в любом случае».", "windowsNote": "Версия для Windows тестовая: если что-то не работает, напишите тому, кто дал вам ссылку.", "macTitle": "Mac", "macStep1": "Откройте скачанный образ (двойной щелчок): появится окно со стрелкой.", "macStep2": "Перетащите Contra Petukhov на ярлык «Программы», иначе игра не будет обновляться. Затем извлеките образ (Finder → Извлечь) и откройте игру из «Программ».", "macStep3": "macOS предупредит, что не может проверить разработчика. Закройте это окно кнопкой «Готово».", "macStep4": "Откройте «Системные настройки» → «Конфиденциальность и безопасность», внизу нажмите «Всё равно открыть» и подтвердите. На macOS 14 и старее достаточно нажать на игру правой кнопкой → «Открыть».", "updateNote": "Следующие обновления игра скачивает сама при входе."}}</script>
+<script src="../release.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>
